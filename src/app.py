@@ -3,6 +3,7 @@ from dash import dcc, html
 from dash.dependencies import Output, Input, State
 from main import predict_sentiment, model_gru, tokenizer
 
+
 app = dash.Dash(__name__)
 server = app.server
 
