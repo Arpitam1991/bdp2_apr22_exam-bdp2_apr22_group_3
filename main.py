@@ -301,3 +301,4 @@ def predict_sentiment(model, tokenizer, user_input):
 
 'Saving model'
 model_gru.save("model.h5")
+
