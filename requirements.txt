@@ -9,7 +9,7 @@ pymongo==4.5.0
 requests==2.31.0
 scikit_learn==1.3.1
 spacy==3.6.1
-en-core-web-sm==3.6.0
+en-core-web-sm
 tensorflow==2.13.0
 intel-tensorflow==2.13.0
 tqdm==4.66.1
