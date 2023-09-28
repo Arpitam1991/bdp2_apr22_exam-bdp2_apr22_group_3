@@ -5,7 +5,7 @@ from main import predict_sentiment, model_gru, tokenizer
 
 
 app = dash.Dash(__name__)
-server = app.server
+# server = app.server
 
 app.layout = html.Div(
     children=[
