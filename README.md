@@ -1,9 +1,7 @@
 # Project Name
 Twitter Sentiment Analysis
 
-## Project Description
 
-This project aims to 
 
 ## Data Collection
 
@@ -27,8 +25,7 @@ We containerized our project using Docker for seamless deployment and scaling.
 
 ## Deployment
 
-For production deployment, we employed  to manage container orchestration. This ensures scalability and high availability. 
-
+For production deployment, we used AWS, we used aws CLI services to deploy docker image. we used AWS ECr to push the image onto our Repository.
 
 ## Data Version Control (DVC)
 To maintain data integrity and version control, we integrated Data Version Control (DVC) into our project workflow. DVC allows us to track changes and collaborate effectively on data-related tasks.
