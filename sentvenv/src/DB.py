@@ -2,6 +2,8 @@ import pymongo
 import requests
 import pandas as pd
 import csv
+import os
+from dotenv import load_dotenv
 
 def insert_json_data(data_list, collection_name, mongodb_uri, database_name):
     # Function to insert a list of JSON data into MongoDB collection
@@ -12,13 +14,12 @@ def insert_json_data(data_list, collection_name, mongodb_uri, database_name):
     client.close()
 
 # All urls and tokens
-API_TOKEN = "PezlVLkQjEBjFM7OEBZnLjJRloYdJXKW"
-key = 'Token' + " " + API_TOKEN
+load_dotenv()
 
-# DB
-mongodb_uri = "mongodb+srv://SubhLodh:subhlodh@cluster0.yc9it6o.mongodb.net/"
-database_name = "tweets"
-collection_name = "tweet_data"
+API_TOKEN = os.getenv("API_TOKEN")
+mongodb_uri = os.getenv("MONGODB_URI")
+database_name = os.getenv("DATABASE_NAME")
+collection_name = os.getenv("COLLECTION_NAME")
 
 response = requests.get("https://api.baserow.io/api/database/rows/table/199970/",
                         headers={"Authorization": key})
