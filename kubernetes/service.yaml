@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: sent-service
 spec:
   selector:
-    app: myapp
+    app: sentapp
   ports:
   - protocol: TCP
     port: 80

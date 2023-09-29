@@ -1,5 +1,7 @@
 import pymongo
 import requests
+import pandas as pd
+import csv
 
 def insert_json_data(data_list, collection_name, mongodb_uri, database_name):
     # Function to insert a list of JSON data into MongoDB collection
@@ -26,6 +28,7 @@ if response.status_code == 200:
     results = data['results']
     document_list = []
 
+
     for item in results:
         text = item.get('field_1368866', '')  # text
         label = item.get('field_1368867', '') # label
@@ -36,6 +39,15 @@ if response.status_code == 200:
             document_list.append({"text": text, "label": label})
 
     if document_list:
+        csv_file_path = '../../api_data.csv'
+        with open(csv_file_path, 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = document_list[0].keys()
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            for document in document_list:
+                writer.writerow(document)
+
+        #Storing in mongodb
         insert_json_data(document_list, collection_name, mongodb_uri, database_name)
         print("Data stored in MongoDB.")
     else:
@@ -43,3 +55,5 @@ if response.status_code == 200:
 
 else:
     print(f'Error: {response.status_code}')
+
+
